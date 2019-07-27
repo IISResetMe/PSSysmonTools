@@ -649,6 +649,25 @@
                   <xs:attribute name="onmatch" type="IncludeExcludeType" use="required"/>
                 </xs:complexType>
               </xs:element>
+              <xs:element name="DnsQuery" minOccurs="0" maxOccurs="2">
+                <xs:annotation>
+                  <xs:documentation>
+                    Event ID: 22
+                  </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="UtcTime"      type="GenericStringRule"  minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="ProcessGuid"  type="GuidRule"           minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="ProcessId"    type="DWORDRule"          minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="QueryName"    type="GenericStringRule"  minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="QueryStatus"  type="GenericStringRule"  minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="QueryResults" type="GenericStringRule"  minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="Image"        type="GenericStringRule"  minOccurs="0" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                  <xs:attribute name="onmatch" type="IncludeExcludeType" use="required"/>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -666,6 +685,14 @@
           <xs:annotation>
             <xs:documentation>
               Specifies the name of the Sysmon driver to be used upon installation of the Sysmon service. This is an alternative to the sysmon.exe "-d" switch.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <!-- DnsQuery and the related -dns command line switch isn't currently documented -->
+        <xs:element name="DnsQuery" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+              The purpose of DnsQuery is unknown as is its command line switch option '-dns'. Perhaps intended to toggle dns query logging globally.
             </xs:documentation>
           </xs:annotation>
         </xs:element>
