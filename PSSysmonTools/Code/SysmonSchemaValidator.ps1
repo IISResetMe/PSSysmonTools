@@ -88,6 +88,10 @@ Outputs an object consisting of the results of the schema validation.
                     $XSDPath = "$Script:ModuleBase\Schemas\SysmonConfigurationSchema_4_10.xsd"
                 }
 
+                '4.21' {
+                    $XSDPath = "$Script:ModuleBase\Schemas\SysmonConfigurationSchema_4_21.xsd"
+                }
+
                 default {
                     Write-Error "Schema version $SchemaVersion is not supported."
                     return
